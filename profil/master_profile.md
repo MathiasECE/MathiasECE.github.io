@@ -7,7 +7,7 @@
 - **Email:** mathias.vernier@outlook.fr
 - **LinkedIn:** https://www.linkedin.com/in/mathias-vernier/
 - **GitHub:** https://github.com/MathiasECE
-- **Phone:** +33 6 78 44 10 18
+- **Phone:** Available on CV / upon request
 - **Location:** Paris, France
 - **Availability:** Seeking a 5-month Engineering Internship (April – August 2027)
 
