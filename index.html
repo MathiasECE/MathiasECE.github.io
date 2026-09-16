@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathias Vernier — Engineering Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50:  '#f8fafc',
+                            100: '#f1f5f9',
+                            400: '#94a3b8',
+                            500: '#334155',
+                            600: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* Scroll progress bar */
+        #progress-bar {
+            position: fixed;
+            top: 0; left: 0;
+            height: 2px;
+            background: #0f172a;
+            z-index: 999;
+            transition: width 0.1s linear;
+        }
+
+        /* Smooth section reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Tag hover subtle border */
+        .tech-tag {
+            transition: all 0.2s ease;
+        }
+        .tech-tag:hover {
+            border-color: #0f172a;
+            color: #0f172a;
+        }
+
+        /* Project card hover */
+        .project-media {
+            transition: transform 0.3s ease;
+        }
+        .project-media:hover {
+            transform: scale(1.008);
+        }
+
+        /* Hero subtle neutral background */
+        .hero-gradient {
+            background: #fafafa;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        /* Minimal section divider */
+        .section-divider::before {
+            content: '';
+            display: block;
+            width: 28px;
+            height: 2px;
+            background: #0f172a;
+            margin-bottom: 0.85rem;
+        }
+
+        /* Navbar active link */
+        .nav-link {
+            position: relative;
+            transition: color 0.2s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 1.5px;
+            background: #0f172a;
+            transition: width 0.25s ease;
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Mobile menu */
+        #mobile-menu {
+            display: none;
+        }
+        #mobile-menu.open {
+            display: block;
+        }
+
+        /* Video overlay button */
+        .yt-overlay {
+            cursor: pointer;
+        }
+        .yt-overlay:hover .yt-play-icon {
+            transform: scale(1.08);
+        }
+        .yt-play-icon {
+            transition: transform 0.2s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- Scroll Progress Bar -->
+    <div id="progress-bar" style="width:0%"></div>
+
+    <!-- ═══════════════════════════════════ NAVBAR ═══════════════════════════════════ -->
+    <header id="navbar" class="bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100 sticky top-0 z-50 transition-shadow duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="#hero" class="flex items-center gap-2 group">
+                    <span class="text-xl font-extrabold text-gray-900 tracking-tight group-hover:text-brand-500 transition">M<span class="text-brand-500">.</span>V</span>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#projects" class="nav-link text-sm font-medium text-gray-600 hover:text-gray-900">Projects</a>
+                    <a href="#about" class="nav-link text-sm font-medium text-gray-600 hover:text-gray-900">About</a>
+                    <a href="mailto:mathias.vernier@outlook.fr" class="flex items-center gap-2 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-black transition shadow-sm">
+                        <i class="fa-solid fa-paper-plane text-xs"></i> Contact
+                    </a>
+                </nav>
+
+                <!-- Mobile Hamburger -->
+                <button id="hamburger" class="md:hidden text-gray-600 hover:text-gray-900 p-2" aria-label="Open menu">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden border-t border-gray-100 bg-white">
+            <div class="flex flex-col px-4 py-4 gap-4">
+                <a href="#projects" class="text-sm font-medium text-gray-700 hover:text-gray-900">Projects</a>
+                <a href="#about" class="text-sm font-medium text-gray-700 hover:text-gray-900">About</a>
+                <a href="mailto:mathias.vernier@outlook.fr" class="text-sm font-semibold text-gray-900">Contact me →</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ═══════════════════════════════════ HERO ═══════════════════════════════════ -->
+        <section id="hero" class="hero-gradient py-20 md:py-28 px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <!-- Text -->
+                    <div class="flex-1 text-center lg:text-left">
+                        <!-- Profile Image & Status Badge -->
+                        <div class="flex flex-col items-center lg:items-start mb-6">
+                            <div class="relative inline-block mb-4">
+                                <img src="Image_de_profil.jpg" 
+                                     alt="Mathias Vernier" 
+                                     class="w-24 h-24 md:w-28 md:h-28 rounded-2xl object-cover object-top border border-gray-200/90 shadow-sm ring-4 ring-white transition-transform duration-300 hover:scale-105">
+                                <span class="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 border-2 border-white rounded-full" title="Available for internship"></span>
+                            </div>
+                            <div class="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-mono tracking-wide shadow-xs">
+                                <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
+                                Available for 5-month internship · April – August 2027
+                            </div>
+                        </div>
+
+                        <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight leading-tight mb-4">
+                            Mathias Vernier
+                        </h1>
+                        <p class="text-xl text-gray-500 font-medium mb-3">Embedded Systems Engineer · ING4 (M1)</p>
+                        <p class="text-gray-500 leading-relaxed max-w-lg mx-auto lg:mx-0 mb-8">
+                            Engineering student in <strong>ING4 (4th Year / Master 1)</strong> at <strong class="text-gray-800 font-semibold">ECE Paris</strong> — designing digital hardware, control systems, and low-level firmware: from FPGA pure-logic game engines to autonomous kinematic robots.
+                        </p>
+                        <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
+                            <a href="#projects" class="bg-gray-900 text-white px-6 py-3 rounded-xl font-medium hover:bg-black transition shadow-sm">
+                                View Projects
+                            </a>
+                            <a href="mailto:mathias.vernier@outlook.fr" class="bg-white text-gray-800 border border-gray-200 px-6 py-3 rounded-xl font-medium hover:bg-gray-50 transition shadow-xs">
+                                <i class="fa-solid fa-envelope mr-2 text-gray-500"></i> mathias.vernier@outlook.fr
+                            </a>
+                        </div>
+                        <!-- Social Links -->
+                        <div class="flex gap-4 mt-6 justify-center lg:justify-start">
+                            <a href="mailto:mathias.vernier@outlook.fr" class="text-gray-400 hover:text-gray-800 transition" title="Email">
+                                <i class="fa-solid fa-envelope text-lg"></i>
+                            </a>
+                            <a href="https://github.com/MathiasECE" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-800 transition" title="GitHub">
+                                <i class="fa-brands fa-github text-lg"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/mathias-vernier/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-800 transition" title="LinkedIn">
+                                <i class="fa-brands fa-linkedin text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Skills card -->
+                    <div class="flex-shrink-0 w-full lg:w-80">
+                        <div class="bg-white rounded-2xl shadow-xs border border-gray-200/80 p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <p class="text-xs font-mono font-semibold text-gray-400 uppercase tracking-wider">Technical Competencies</p>
+                                <span class="text-[10px] font-mono text-gray-400">HARDWARE & EMBEDDED</span>
+                            </div>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="bg-gray-50 text-gray-700 text-xs font-mono px-2.5 py-1 rounded-md border border-gray-200">C / C++</span>
+                                <span class="bg-gray-50 text-gray-700 text-xs font-mono px-2.5 py-1 rounded-md border border-gray-200">VHDL</span>
+                                <span class="bg-gray-50 text-gray-700 text-xs font-mono px-2.5 py-1 rounded-md border border-gray-200">Python</span>
+                                <span class="bg-gray-50 text-gray-700 text-xs font-mono px-2.5 py-1 rounded-md border border-gray-200">ESP32</span>
+                                <span class="bg-gray-50 text-gray-700 text-xs font-mono px-2.5 py-1 rounded-md border border-gray-200">ARM Cortex</span>
+                                <span class="bg-gray-50 text-gray-700 text-xs font-mono px-2.5 py-1 rounded-md border border-gray-200">Intel MAX 10</span>
+                                <span class="bg-gray-50 text-gray-700 text-xs font-mono px-2.5 py-1 rounded-md border border-gray-200">PID Control</span>
+                                <span class="bg-gray-50 text-gray-700 text-xs font-mono px-2.5 py-1 rounded-md border border-gray-200">RTOS</span>
+                                <span class="bg-gray-50 text-gray-700 text-xs font-mono px-2.5 py-1 rounded-md border border-gray-200">VR Simulation</span>
+                                <span class="bg-gray-50 text-gray-700 text-xs font-mono px-2.5 py-1 rounded-md border border-gray-200">Digital Filtering</span>
+                                <span class="bg-gray-50 text-gray-700 text-xs font-mono px-2.5 py-1 rounded-md border border-gray-200">Quartus Prime</span>
+                            </div>
+                            <hr class="my-4 border-gray-100">
+                            <div class="space-y-2.5">
+                                <div class="flex items-center gap-2.5 text-xs text-gray-600">
+                                    <i class="fa-solid fa-graduation-cap text-gray-400 w-4"></i>
+                                    <span>ECE Paris — ING4 · Embedded Systems</span>
+                                </div>
+                                <div class="flex items-center gap-2.5 text-xs text-gray-600">
+                                    <i class="fa-solid fa-location-dot text-gray-400 w-4"></i>
+                                    <span>Paris, France</span>
+                                </div>
+                                <div class="flex items-center gap-2.5 text-xs text-gray-600">
+                                    <i class="fa-solid fa-language text-gray-400 w-4"></i>
+                                    <span>French (Native) · English (TOEIC 870)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════ PROJECTS ═══════════════════════════════════ -->
+        <section id="projects" class="py-24 px-4">
+            <div class="max-w-6xl mx-auto">
+
+                <!-- Section Title -->
+                <div class="text-center mb-20">
+                    <p class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-2">Projects</p>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Selected Work</h2>
+                    <p class="text-gray-500 mt-2 max-w-xl mx-auto text-sm">Hardware architectures, control systems, and interactive digital engineering.</p>
+                </div>
+
+                <div class="space-y-32">
+
+                    <!-- ─────────────── PROJECT 1 : IMOCA 4CAD ─────────────── -->
+                    <div id="proj-4cad" class="reveal flex flex-col lg:flex-row gap-12 items-center">
+                        <!-- Media -->
+                        <div class="w-full lg:w-1/2 flex flex-col gap-4">
+                            <!-- YouTube embed overlay on the video -->
+                            <div class="w-full aspect-video bg-gray-900 rounded-2xl shadow-xl overflow-hidden relative project-media">
+                                <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-90 scale-[1.2] origin-top">
+                                    <source src="4cad/Video Project 2.mp4" type="video/mp4">
+                                </video>
+                                <span class="absolute bottom-3 right-3 text-xs text-white bg-black/60 px-2 py-1 rounded shadow">Skipper Testing VR</span>
+                            </div>
+                            <!-- Thumbnails -->
+                            <div class="grid grid-cols-2 gap-4">
+                                <!-- Real photo -->
+                                <div class="aspect-video rounded-xl shadow-inner overflow-hidden border border-gray-200">
+                                    <img src="4cad/1774992727067.jpg" alt="Global Industrie 2026" class="w-full h-full object-cover">
+                                </div>
+                                <!-- YouTube link -->
+                                <a href="https://www.youtube.com/watch?v=xjNSHMYD5cg" target="_blank" rel="noopener"
+                                   class="yt-overlay aspect-video bg-[#0f172a] rounded-xl flex flex-col items-center justify-center text-white hover:bg-black transition relative overflow-hidden border border-gray-800">
+                                    <i class="fa-brands fa-youtube yt-play-icon text-3xl mb-1 text-red-500"></i>
+                                    <span class="text-xs font-mono text-gray-300">Watch Video</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Text -->
+                        <div class="w-full lg:w-1/2">
+                            <div class="flex items-center flex-wrap gap-3 mb-3">
+                                <span class="text-xs font-mono font-semibold text-gray-400 uppercase tracking-wider section-divider">Industrial Internship · 4CAD Group</span>
+                            </div>
+                            <div class="flex items-center flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-100 border border-gray-200 text-gray-700 text-xs font-mono px-2.5 py-1 rounded-md flex items-center">
+                                    <i class="fa-solid fa-lock mr-1.5 text-gray-400 text-[10px]"></i> NDA Confidential
+                                </span>
+                                <span class="bg-gray-100 border border-gray-200 text-gray-600 text-xs font-mono px-2.5 py-1 rounded-md">ING3 · Semester 2 (Jan – Feb 2026)</span>
+                                <span class="bg-gray-100 border border-gray-200 text-gray-600 text-xs font-mono px-2.5 py-1 rounded-md">Global Industrie 2026</span>
+                            </div>
+                            <h3 class="text-3xl font-extrabold text-gray-900 mb-4">IMOCA Cockpit VR Experience</h3>
+                            <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                                Two-mission internship for <strong>4CAD Group</strong>, sponsor of IMOCA skipper <strong>Benjamin Dutreux</strong> (Vendée Globe 2028). Developed VR tooling to support cockpit design — then deployed a live interactive demo at <strong>Global Industrie 2026</strong>.
+                            </p>
+
+                            <!-- Mission 1 -->
+                            <div class="mb-5">
+                                <p class="text-xs font-mono font-semibold text-gray-400 uppercase tracking-wider mb-2">Mission 1 — Design Validation Tool</p>
+                                <ul class="space-y-2.5 text-gray-700">
+                                    <li class="flex gap-3"><i class="fa-solid fa-check text-gray-400 mt-1 flex-shrink-0 text-sm"></i><span>Developed a real-time VR solution to visualize and review the IMOCA yacht cockpit during the design phase — before physical manufacturing.</span></li>
+                                    <li class="flex gap-3"><i class="fa-solid fa-check text-gray-400 mt-1 flex-shrink-0 text-sm"></i><span>Processed native CAD structural data to build an accurate 3D interactive scene with stable 60+ FPS rendering.</span></li>
+                                </ul>
+                            </div>
+
+                            <!-- Mission 2 -->
+                            <div class="mb-8">
+                                <p class="text-xs font-mono font-semibold text-gray-400 uppercase tracking-wider mb-2">Mission 2 — Interactive Trade Show Demonstrator</p>
+                                <ul class="space-y-2.5 text-gray-700">
+                                    <li class="flex gap-3"><i class="fa-solid fa-check text-gray-400 mt-1 flex-shrink-0 text-sm"></i><span>Built a headset-free cockpit walkthrough: visitors explore the yacht interior in VR controlled by a <strong>motion sensor</strong> tracking their physical movements.</span></li>
+                                    <li class="flex gap-3"><i class="fa-solid fa-check text-gray-400 mt-1 flex-shrink-0 text-sm"></i><span>Deployed and operated live at <strong>Global Industrie 2026</strong> to showcase 4CAD's sponsorship of skipper Benjamin Dutreux for the Vendée Globe.</span></li>
+                                </ul>
+                            </div>
+
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="tech-tag bg-gray-50 border border-gray-200 text-gray-700 px-3 py-1 rounded-md font-mono text-xs shadow-2xs transition cursor-default">Virtual Reality</span>
+                                <span class="tech-tag bg-gray-50 border border-gray-200 text-gray-700 px-3 py-1 rounded-md font-mono text-xs shadow-2xs transition cursor-default">Motion Sensing</span>
+                                <span class="tech-tag bg-gray-50 border border-gray-200 text-gray-700 px-3 py-1 rounded-md font-mono text-xs shadow-2xs transition cursor-default">3D Rendering</span>
+                                <span class="tech-tag bg-gray-50 border border-gray-200 text-gray-700 px-3 py-1 rounded-md font-mono text-xs shadow-2xs transition cursor-default">KeyShot</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ─────────────── PROJECT 2 : DRAWBOT ─────────────── -->
+                    <div id="proj-drawbot" class="reveal flex flex-col lg:flex-row-reverse gap-12 items-center">
+                        <!-- Media -->
+                        <div class="w-full lg:w-1/2 flex flex-col gap-4">
+                            <div class="w-full aspect-video bg-gray-200 rounded-2xl shadow-xl overflow-hidden relative project-media">
+                                <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                                    <source src="video/Drawbot.mp4" type="video/mp4">
+                                </video>
+                                <span class="absolute bottom-3 right-3 text-xs text-white bg-black/60 px-2 py-1 rounded shadow">Real-time Plotting</span>
+                            </div>
+                            <!-- Architecture thumbnail — click to zoom -->
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="aspect-video rounded-xl overflow-hidden bg-[#0d1117] cursor-zoom-in relative group"
+                                     onclick="openLightbox('architecture/architecture_drawbot.png')">
+                                    <img src="architecture/architecture_drawbot.png" alt="Drawbot Hardware Architecture" class="w-full h-full object-contain">
+                                    <span class="absolute bottom-2 right-2 text-xs text-white bg-black/60 px-2 py-1 rounded shadow">Hardware Architecture</span>
+                                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/30">
+                                        <i class="fa-solid fa-magnifying-glass-plus text-white text-2xl"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Text -->
+                        <div class="w-full lg:w-1/2">
+                            <div class="mb-3">
+                                <span class="text-xs font-mono font-semibold text-gray-400 uppercase tracking-wider section-divider">Robotics & Control Systems</span>
+                            </div>
+                            <div class="flex items-center flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-100 border border-gray-200 text-gray-600 text-xs font-mono px-2.5 py-1 rounded-md">ING2 · Semester 2</span>
+                                <span class="bg-gray-100 border border-gray-200 text-gray-600 text-xs font-mono px-2.5 py-1 rounded-md">Academic Engineering Project</span>
+                            </div>
+                            <h3 class="text-3xl font-extrabold text-gray-900 mb-4">Drawbot — Autonomous Plotter</h3>
+                            <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                                End-to-end hardware and software design of a differential-drive robot that draws complex geometric shapes (rosettes, circles) through closed-loop PID control and custom pen-offset kinematics.
+                            </p>
+                            <ul class="space-y-2.5 text-gray-700 mb-8">
+                                <li class="flex gap-3"><i class="fa-solid fa-check text-gray-400 mt-1 flex-shrink-0 text-sm"></i><span>Implemented a dual PID control loop (linear + angular) using hardware encoder interrupts for precise trajectory tracking.</span></li>
+                                <li class="flex gap-3"><i class="fa-solid fa-check text-gray-400 mt-1 flex-shrink-0 text-sm"></i><span><strong>Pen-offset kinematics:</strong> derived and solved differential kinematic equations to compensate for a 13 cm physical offset between robot center and pen.</span></li>
+                                <li class="flex gap-3"><i class="fa-solid fa-check text-gray-400 mt-1 flex-shrink-0 text-sm"></i><span>Embedded an asynchronous Wi-Fi web server (ESP32 AP mode) for real-time remote control via any browser.</span></li>
+                                <li class="flex gap-3"><i class="fa-solid fa-check text-gray-400 mt-1 flex-shrink-0 text-sm"></i><span>Debugged motor driver PWM and hardware timers using logic analyzer and oscilloscope.</span></li>
+                            </ul>
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="tech-tag bg-gray-50 border border-gray-200 text-gray-700 px-3 py-1 rounded-md font-mono text-xs shadow-2xs transition cursor-default">C++</span>
+                                <span class="tech-tag bg-gray-50 border border-gray-200 text-gray-700 px-3 py-1 rounded-md font-mono text-xs shadow-2xs transition cursor-default">ESP32</span>
+                                <span class="tech-tag bg-gray-50 border border-gray-200 text-gray-700 px-3 py-1 rounded-md font-mono text-xs shadow-2xs transition cursor-default">PID Control</span>
+                                <span class="tech-tag bg-gray-50 border border-gray-200 text-gray-700 px-3 py-1 rounded-md font-mono text-xs shadow-2xs transition cursor-default">Kinematics</span>
+                                <span class="tech-tag bg-gray-50 border border-gray-200 text-gray-700 px-3 py-1 rounded-md font-mono text-xs shadow-2xs transition cursor-default">Arduino IDE</span>
+                            </div>
+                            <div class="flex items-center gap-3 mt-6">
+                                <a href="https://github.com/MathiasECE/drawbot-esp32" target="_blank" rel="noopener noreferrer" 
+                                   class="inline-flex items-center gap-2 bg-gray-900 text-white px-4 py-2 rounded-lg text-xs font-mono font-medium hover:bg-black transition shadow-xs">
+                                    <i class="fa-brands fa-github text-sm"></i> View on GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ─────────────── PROJECT 3 : FRUIT NINJA FPGA ─────────────── -->
+                    <div id="proj-fpga" class="reveal flex flex-col lg:flex-row gap-12 items-center">
+                        <!-- Media -->
+                        <div class="w-full lg:w-1/2 flex flex-col gap-4">
+                            <div class="w-full aspect-video bg-gray-900 rounded-2xl shadow-xl overflow-hidden relative project-media">
+                                <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                                    <source src="video/FPGA.mp4" type="video/mp4">
+                                    <source src="Hello_VGA/FPGA.mp4" type="video/mp4">
+                                </video>
+                                <span class="absolute bottom-3 right-3 text-xs text-white bg-black/60 px-2 py-1 rounded shadow">FPGA · VGA 640×480 @ 60 Hz</span>
+                            </div>
+                            <!-- Architecture thumbnail — click to zoom -->
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="aspect-video rounded-xl overflow-hidden bg-[#0d1117] cursor-zoom-in relative group"
+                                     onclick="openLightbox('architecture/architecture_fpga.png')">
+                                    <img src="architecture/architecture_fpga.png" alt="FPGA Hardware Architecture" class="w-full h-full object-contain">
+                                    <span class="absolute bottom-2 right-2 text-xs text-white bg-black/60 px-2 py-1 rounded shadow">Hardware Architecture</span>
+                                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/30">
+                                        <i class="fa-solid fa-magnifying-glass-plus text-white text-2xl"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Text -->
+                        <div class="w-full lg:w-1/2">
+                            <div class="mb-3">
+                                <span class="text-xs font-mono font-semibold text-gray-400 uppercase tracking-wider section-divider">Digital Logic & RTL</span>
+                            </div>
+                            <div class="flex items-center flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-100 border border-gray-200 text-gray-600 text-xs font-mono px-2.5 py-1 rounded-md">ING2 · Semester 1</span>
+                                <span class="bg-gray-100 border border-gray-200 text-gray-600 text-xs font-mono px-2.5 py-1 rounded-md">Pure Hardware Logic (VHDL)</span>
+                            </div>
+                            <h3 class="text-3xl font-extrabold text-gray-900 mb-4">Fruit Ninja on FPGA</h3>
+                            <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                                A complete, fully hardware-accelerated <strong>Fruit Ninja</strong> arcade game implemented in pure RTL VHDL — no processor, no OS, zero software overhead. Physics, collision detection, menus and VGA generation all run on dedicated synchronous hardware pipelines at 25 MHz.
+                            </p>
+                            <ul class="space-y-2.5 text-gray-700 mb-8">
+                                <li class="flex gap-3"><i class="fa-solid fa-check text-gray-400 mt-1 flex-shrink-0 text-sm"></i><span>Designed a custom <strong>VGA controller</strong> (640×480 @ 60 Hz, 12-bit RGB via resistor DAC) with on-the-fly sprite address generation.</span></li>
+                                <li class="flex gap-3"><i class="fa-solid fa-check text-gray-400 mt-1 flex-shrink-0 text-sm"></i><span><strong>Contactless blade control:</strong> HC-SR04 ultrasonic sensor tracks hand height (20–400 mm) filtered by an IIR low-pass; KY-040 encoder controls blade angle (±55°).</span></li>
+                                <li class="flex gap-3"><i class="fa-solid fa-check text-gray-400 mt-1 flex-shrink-0 text-sm"></i><span>Hardware simulation of parabolic projectile physics for up to 13 concurrent fruit and bomb sprites.</span></li>
+                                <li class="flex gap-3"><i class="fa-solid fa-check text-gray-400 mt-1 flex-shrink-0 text-sm"></i><span>Fixed-point tangent lookup table for real-time angular slicing collision detection — no floating-point units or dividers.</span></li>
+                                <li class="flex gap-3"><i class="fa-solid fa-check text-gray-400 mt-1 flex-shrink-0 text-sm"></i><span>Full graphical menu FSM: 3 game modes (Classic, Zen, Arcade) and 3 speed presets, navigable via rotary encoder.</span></li>
+                            </ul>
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="tech-tag bg-gray-50 border border-gray-200 text-gray-700 px-3 py-1 rounded-md font-mono text-xs shadow-2xs transition cursor-default">VHDL</span>
+                                <span class="tech-tag bg-gray-50 border border-gray-200 text-gray-700 px-3 py-1 rounded-md font-mono text-xs shadow-2xs transition cursor-default">Intel MAX 10</span>
+                                <span class="tech-tag bg-gray-50 border border-gray-200 text-gray-700 px-3 py-1 rounded-md font-mono text-xs shadow-2xs transition cursor-default">VGA 640×480</span>
+                                <span class="tech-tag bg-gray-50 border border-gray-200 text-gray-700 px-3 py-1 rounded-md font-mono text-xs shadow-2xs transition cursor-default">FSM Design</span>
+                                <span class="tech-tag bg-gray-50 border border-gray-200 text-gray-700 px-3 py-1 rounded-md font-mono text-xs shadow-2xs transition cursor-default">RTL</span>
+                                <span class="tech-tag bg-gray-50 border border-gray-200 text-gray-700 px-3 py-1 rounded-md font-mono text-xs shadow-2xs transition cursor-default">Quartus Prime</span>
+                            </div>
+                            <div class="flex items-center gap-3 mt-6">
+                                <a href="https://github.com/MathiasECE/fruit-ninja-fpga" target="_blank" rel="noopener noreferrer" 
+                                   class="inline-flex items-center gap-2 bg-gray-900 text-white px-4 py-2 rounded-lg text-xs font-mono font-medium hover:bg-black transition shadow-xs">
+                                    <i class="fa-brands fa-github text-sm"></i> View on GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════ ABOUT ═══════════════════════════════════ -->
+        <section id="about" class="bg-white border-t border-gray-100 py-24 px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <p class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-2">Background</p>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">About Me</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 items-start">
+                    <!-- Left: Bio -->
+                    <div>
+                        <p class="text-gray-600 text-base leading-relaxed mb-5">
+                            I'm an <strong>ING4 (Master 1)</strong> student in Embedded Systems at <strong class="text-gray-900">ECE Paris</strong>, focused on bridging digital logic hardware and software — from pure RTL VHDL engines to closed-loop motor control kinematics.
+                        </p>
+                        <p class="text-gray-600 text-base leading-relaxed mb-5">
+                            My background includes industrial engineering at <strong class="text-gray-900">4CAD Group</strong> (Vendée Globe 2028 campaign) creating real-time VR simulations, as well as academic projects in FPGA architectures, robotics, and embedded systems.
+                        </p>
+                        <p class="text-gray-600 text-base leading-relaxed">
+                            Actively seeking a <strong>5-month engineering internship</strong> starting April 2027 to contribute to cutting-edge embedded hardware, low-level firmware, or autonomous systems.
+                        </p>
+                    </div>
+
+                    <!-- Right: Experience cards -->
+                    <div class="space-y-4">
+                        <!-- Internship 1 -->
+                        <div class="bg-gray-50 border border-gray-200/80 rounded-xl p-5 shadow-xs">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <p class="font-bold text-gray-900 text-sm">Engineering Intern</p>
+                                    <p class="text-gray-500 font-medium text-xs font-mono">4CAD Group · Vendée Globe 2028</p>
+                                </div>
+                                <span class="text-[11px] font-mono text-gray-500 bg-white border border-gray-200 px-2 py-0.5 rounded whitespace-nowrap">ING3 · S2 (Jan – Feb 2026)</span>
+                            </div>
+                            <p class="text-gray-600 text-xs leading-relaxed">Built a real-time 3D Digital Twin and VR experience for cockpit ergonomics validation of an IMOCA racing yacht.</p>
+                        </div>
+                        <!-- Internship 2 -->
+                        <div class="bg-gray-50 border border-gray-200/80 rounded-xl p-5 shadow-xs">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <p class="font-bold text-gray-900 text-sm">Engineering Intern</p>
+                                    <p class="text-gray-500 font-medium text-xs font-mono">Groupe SYD · Automated Workflows</p>
+                                </div>
+                                <span class="text-[11px] font-mono text-gray-500 bg-white border border-gray-200 px-2 py-0.5 rounded whitespace-nowrap">Jan – Feb 2025</span>
+                            </div>
+                            <p class="text-gray-600 text-xs leading-relaxed">Architected automated data workflows and improved UI interfaces for cross-team software adoption.</p>
+                        </div>
+                        <!-- Education -->
+                        <div class="bg-gray-50 border border-gray-200/80 rounded-xl p-5 shadow-xs">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <p class="font-bold text-gray-900 text-sm">M.Sc. in Engineering</p>
+                                    <p class="text-gray-500 font-medium text-xs font-mono">ECE Paris · Major: Embedded Systems</p>
+                                </div>
+                                <span class="text-[11px] font-mono text-gray-500 bg-white border border-gray-200 px-2 py-0.5 rounded whitespace-nowrap">2023 – 2028 · ING4</span>
+                            </div>
+                            <p class="text-gray-600 text-xs">Real-Time OS · Computer Architecture · Signal Processing · Hardware AI · Control Theory</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ═══════════════════════════════════ FOOTER ═══════════════════════════════════ -->
+    <footer class="bg-gray-900 text-gray-400 py-12 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="text-2xl font-extrabold text-white mb-2">Mathias Vernier</p>
+            <p class="text-gray-400 mb-6">Embedded Systems Engineer · ECE Paris · Open to 5-month internship (April – August 2027)</p>
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="mailto:mathias.vernier@outlook.fr" class="hover:text-white transition flex items-center gap-2 text-sm">
+                    <i class="fa-solid fa-envelope"></i> mathias.vernier@outlook.fr
+                </a>
+                <a href="https://github.com/MathiasECE" target="_blank" rel="noopener noreferrer" class="hover:text-white transition flex items-center gap-2 text-sm">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/mathias-vernier/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition flex items-center gap-2 text-sm">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+            <p class="text-xs text-gray-600">Built with HTML · Tailwind CSS · Font Awesome</p>
+        </div>
+    </footer>
+
+    <!-- ═══════════════════════════════════ JS ═══════════════════════════════════ -->
+    <script>
+        // --- Scroll progress bar ---
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const progress = (scrollTop / scrollHeight) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+        });
+
+        // --- Navbar shadow on scroll ---
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 10) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        // --- Reveal on scroll (Intersection Observer) ---
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.12 });
+        revealElements.forEach(el => observer.observe(el));
+
+        // --- Mobile hamburger menu ---
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+        });
+
+        // --- Active nav link on scroll ---
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) current = section.id;
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+            });
+        });
+
+        // --- Lightbox ---
+        const lightboxEl = document.createElement('div');
+        lightboxEl.id = 'lightbox';
+        lightboxEl.style.cssText = 'display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.92);cursor:zoom-out;align-items:center;justify-content:center;padding:24px;';
+        lightboxEl.innerHTML = `
+            <button onclick="closeLightbox()" style="position:absolute;top:16px;right:20px;background:none;border:none;color:white;font-size:28px;cursor:pointer;line-height:1;">✕</button>
+            <img id="lightbox-img" src="" alt="" style="max-width:100%;max-height:92vh;border-radius:12px;box-shadow:0 25px 60px rgba(0,0,0,0.8);object-fit:contain;">
+        `;
+        document.body.appendChild(lightboxEl);
+
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            lightboxEl.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            lightboxEl.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        lightboxEl.addEventListener('click', e => { if (e.target === lightboxEl) closeLightbox(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+    </script>
+
+</body>
+</html>
