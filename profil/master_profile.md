@@ -2,7 +2,7 @@
 
 ## 1. CONTACT & HEADLINE
 - **Name:** Mathias Vernier
-- **Photo:** Image_de_profil.jpg
+- **Photo:** assets/img/profile.jpg
 - **Title:** EMBEDDED SYSTEMS ENGINEER
 - **Email:** mathias.vernier@outlook.fr
 - **LinkedIn:** https://www.linkedin.com/in/mathias-vernier/
