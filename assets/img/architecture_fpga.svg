@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1355.57915 826.6" width="1355.57915" height="826.6" style="--bg:#1F1F1F;--fg:#CCCCCC;--line:#CCCCCC;--accent:#0078D4;--muted:#CCCCCCCC;--surface:#181818;--border:#CCCCCC;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<polyline class="edge" data-from="CLK50" data-to="PLL" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="600.6999,88.9 600.6999,128.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="PLL" data-to="SYNC" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="25 MHz" points="584.7970999999999,165.5 584.7970999999999,197.8 515.9916499999999,197.8 515.9916499999999,290.1" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="PLL" data-to="CTRL" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="25 MHz" points="616.6026999999999,165.5 616.6026999999999,266.1 685.4081499999999,266.1 685.4081499999999,419.30000000000007 719.1739666666666,419.30000000000007 719.1739666666666,437.30000000000007" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="PLL" data-to="MENU" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="25 MHz" points="552.9915,165.5 552.9915,185.8 347.28515,185.8 347.28515,407.30000000000007 408.9586999999998,407.30000000000007 408.9586999999998,437.30000000000007" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="PLL" data-to="ENC" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="25 MHz" points="648.4082999999999,165.5 648.4082999999999,197.8 769.2299666666667,197.8 769.2299666666667,266.1 826.4144833333332,266.1 826.4144833333332,290.1" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="US" data-to="COUNTER" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Echo Pulse" points="1182.7131499999996,88.9 1182.71315,205.2" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="COUNTER" data-to="CALC" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1182.71315,242.1 1182.71315,290.1" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="CALC" data-to="CTRL" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Distance mm" points="1182.71315,327 1182.71315,419.30000000000007 807.5043,419.30000000000007 807.5043,437.30000000000007" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="ROTSW" data-to="ENC" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="911.2604666666666,242.1 911.2604666666666,266.1 875.2726499999999,266.1 875.2726499999999,290.1" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="ENC" data-to="CTRL" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Angle Index" points="875.27265,327 875.27265,407.30000000000007 763.3391333333333,407.30000000000007 763.3391333333333,437.30000000000007" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="ROTSW" data-to="MENU" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="911.2604666666666,242.1 911.2604666666666,266.1 423.2312999999998,266.1 423.2312999999998,437.30000000000007" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="KEY0" data-to="RG" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="114.327,242.1 114.327,290.1 152.01583333333326,290.1 152.01583333333326,290.1" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="LIVES" data-to="RG" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Game Over" points="247.65399999999994,165.5 247.654,290.1 209.96516666666656,290.1 209.96516666666656,290.1" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="RG" data-to="CTRL" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="reset_out" points="209.96516666666656,327 209.96516666666656,375 238.3358166666667,375 238.3358166666667,419.30000000000007 630.8436333333333,419.30000000000007 630.8436333333333,437.30000000000007" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="RG" data-to="MENU" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="reset_out" points="152.01583333333326,327 152.01583333333326,387 147.5934999999999,387 147.5934999999999,431.30000000000007 380.41349999999983,431.30000000000007 380.41349999999983,437.30000000000007" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="MENU" data-to="MUX" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Menu RGB" points="423.2312999999998,474.20000000000005 423.2312999999998,584.5000000000001 443.17201666666654,584.5000000000001 443.17201666666654,590.5000000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="CTRL" data-to="MUX" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Game RGB" points="675.0088,474.20000000000005 675.0088,504.20000000000005 616.8058,504.20000000000005 616.8058,584.5000000000001 510.7543499999999,584.5000000000001 510.7543499999999,590.5000000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="SYNC" data-to="CTRL" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Raster X/Y &amp; Blanking" points="555.4638166666666,327 555.4638166666666,351 577.9006499999999,351 577.9006499999999,395.30000000000007 675.0088,395.30000000000007 675.0088,437.30000000000007" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="SYNC" data-to="MENU" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Raster X/Y &amp; Blanking" points="476.51948333333326,327 476.51948333333326,363 454.08264999999994,363 454.08264999999994,431.30000000000007 437.5038999999998,431.30000000000007 437.5038999999998,437.30000000000007" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="MUX" data-to="VGA" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="12-bit RGB &amp; Sync" points="476.96318333333323,627.4000000000001 476.9631833333333,749.7" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="CTRL" data-to="BCD" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Score Binary" points="763.3391333333333,474.20000000000005 763.3391333333333,590.5000000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="BCD" data-to="SEGS" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="763.3391333333333,627.4000000000001 763.3391333333333,669.4000000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<g class="edge-label" data-from="PLL" data-to="SYNC" data-label="25 MHz">
+  <rect x="488.99164999999994" y="204.8" width="53.29" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="515.6366499999999" y="219.95000000000002" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">25 MHz</text>
+</g>
+<g class="edge-label" data-from="PLL" data-to="CTRL" data-label="25 MHz">
+  <rect x="658.4081499999999" y="358" width="53.29" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="685.0531499999998" y="373.15" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">25 MHz</text>
+</g>
+<g class="edge-label" data-from="PLL" data-to="MENU" data-label="25 MHz">
+  <rect x="320.28515" y="370" width="53.29" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="346.93014999999997" y="385.15" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">25 MHz</text>
+</g>
+<g class="edge-label" data-from="PLL" data-to="ENC" data-label="25 MHz">
+  <rect x="742.2299666666667" y="204.8" width="53.29" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="768.8749666666666" y="219.95000000000002" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">25 MHz</text>
+</g>
+<g class="edge-label" data-from="US" data-to="COUNTER" data-label="Echo Pulse">
+  <rect x="1146.71315" y="143.89999999999998" width="71.70400000000001" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="1182.5651500000001" y="159.04999999999998" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Echo Pulse</text>
+</g>
+<g class="edge-label" data-from="CALC" data-to="CTRL" data-label="Distance mm">
+  <rect x="1144.71315" y="382" width="75.268" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="1182.34715" y="397.15" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Distance mm</text>
+</g>
+<g class="edge-label" data-from="ENC" data-to="CTRL" data-label="Angle Index">
+  <rect x="838.77265" y="358" width="72.89200000000001" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="875.21865" y="373.15" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Angle Index</text>
+</g>
+<g class="edge-label" data-from="LIVES" data-to="RG" data-label="Game Over">
+  <rect x="212.654" y="228.79999999999998" width="69.328" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="247.318" y="243.95" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Game Over</text>
+</g>
+<g class="edge-label" data-from="RG" data-to="CTRL" data-label="reset_out">
+  <rect x="206.8358166666667" y="382" width="62.794000000000004" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="238.23281666666668" y="397.15" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">reset_out</text>
+</g>
+<g class="edge-label" data-from="RG" data-to="MENU" data-label="reset_out">
+  <rect x="116.09349999999988" y="394" width="62.794000000000004" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="147.49049999999988" y="409.15" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">reset_out</text>
+</g>
+<g class="edge-label" data-from="MENU" data-to="MUX" data-label="Menu RGB">
+  <rect x="389.2312999999998" y="523.2" width="67.546" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="423.00429999999983" y="538.35" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Menu RGB</text>
+</g>
+<g class="edge-label" data-from="CTRL" data-to="MUX" data-label="Game RGB">
+  <rect x="583.3058" y="511.20000000000005" width="66.952" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="616.7818" y="526.35" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Game RGB</text>
+</g>
+<g class="edge-label" data-from="SYNC" data-to="CTRL" data-label="Raster X/Y &amp; Blanking">
+  <rect x="517.90065" y="358" width="119.81800000000004" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="577.80965" y="373.15" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Raster X/Y &amp; Blanking</text>
+</g>
+<g class="edge-label" data-from="SYNC" data-to="MENU" data-label="Raster X/Y &amp; Blanking">
+  <rect x="394.08264999999994" y="370" width="119.81800000000004" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="453.99164999999994" y="385.15" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Raster X/Y &amp; Blanking</text>
+</g>
+<g class="edge-label" data-from="MUX" data-to="VGA" data-label="12-bit RGB &amp; Sync">
+  <rect x="427.9631833333333" y="676.4000000000001" width="97.246" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="476.5861833333333" y="691.5500000000001" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">12-bit RGB &amp; Sync</text>
+</g>
+<g class="edge-label" data-from="CTRL" data-to="BCD" data-label="Score Binary">
+  <rect x="722.3391333333333" y="511.20000000000005" width="81.20800000000001" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="762.9431333333333" y="526.35" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Score Binary</text>
+</g>
+<g class="node" data-id="CLK50" data-label="50 MHz Oscillator" data-shape="rectangle">
+  <rect x="528.2253999999999" y="51.99999999999999" width="144.949" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="600.6999" y="70.44999999999999" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">50 MHz Oscillator</text>
+</g>
+<g class="node" data-id="PLL" data-label="Altera PLL: pllClock" data-shape="rectangle">
+  <rect x="521.1859" y="128.6" width="159.028" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="600.6999" y="147.05" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Altera PLL: pllClock</text>
+</g>
+<g class="node" data-id="SYNC" data-label="VGA Timing Generator: vga_sync" data-shape="rectangle">
+  <rect x="397.57514999999995" y="290.1" width="236.833" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="515.9916499999999" y="308.55" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">VGA Timing Generator: vga_sync</text>
+</g>
+<g class="node" data-id="CTRL" data-label="Core Game Controller: VGA_controller" data-shape="rectangle">
+  <rect x="586.6784666666666" y="437.30000000000007" width="264.991" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="719.1739666666666" y="455.75000000000006" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Core Game Controller: VGA_controller</text>
+</g>
+<g class="node" data-id="MENU" data-label="Menu FSM: menu" data-shape="rectangle">
+  <rect x="351.8682999999998" y="437.30000000000007" width="142.726" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="423.2312999999998" y="455.75000000000006" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Menu FSM: menu</text>
+</g>
+<g class="node" data-id="ENC" data-label="Rotary Encoder Decoder: encodeur_rotatif" data-shape="rectangle">
+  <rect x="728.6981499999999" y="290.1" width="293.149" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="875.2726499999999" y="308.55" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Rotary Encoder Decoder: encodeur_rotatif</text>
+</g>
+<g class="node" data-id="US" data-label="HC-SR04 Ultrasonic Sensor" data-shape="rectangle">
+  <rect x="1079.85765" y="51.99999999999999" width="205.71099999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1182.7131499999998" y="70.44999999999999" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">HC-SR04 Ultrasonic Sensor</text>
+</g>
+<g class="node" data-id="COUNTER" data-label="Echo Counter: counter" data-shape="rectangle">
+  <rect x="1095.78915" y="205.2" width="173.84799999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1182.71315" y="223.64999999999998" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Echo Counter: counter</text>
+</g>
+<g class="node" data-id="CALC" data-label="Distance Calculator: measurement_cal" data-shape="rectangle">
+  <rect x="1049.84715" y="290.1" width="265.73199999999997" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1182.71315" y="308.55" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Distance Calculator: measurement_cal</text>
+</g>
+<g class="node" data-id="ROTSW" data-label="Rotary Encoder A/B/SW" data-shape="rectangle">
+  <rect x="819.5199666666666" y="205.2" width="183.48099999999997" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="911.2604666666666" y="223.64999999999998" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Rotary Encoder A/B/SW</text>
+</g>
+<g class="node" data-id="KEY0" data-label="Push Button KEY0" data-shape="rectangle">
+  <rect x="40" y="205.2" width="148.654" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="114.327" y="223.64999999999998" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Push Button KEY0</text>
+</g>
+<g class="node" data-id="RG" data-label="Reset Gate: reset_gate" data-shape="rectangle">
+  <rect x="94.06649999999992" y="290.1" width="173.84799999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="180.9904999999999" y="308.55" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Reset Gate: reset_gate</text>
+</g>
+<g class="node" data-id="LIVES" data-label="Life Counter: decompteur3" data-shape="rectangle">
+  <rect x="149.61499999999995" y="128.6" width="196.078" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="247.65399999999994" y="147.05" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Life Counter: decompteur3</text>
+</g>
+<g class="node" data-id="MUX" data-label="Video Multiplexer: vga_mux" data-shape="rectangle">
+  <rect x="375.58968333333326" y="590.5000000000001" width="202.74699999999996" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="476.96318333333323" y="608.9500000000002" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Video Multiplexer: vga_mux</text>
+</g>
+<g class="node" data-id="VGA" data-label="VGA Monitor: 640x480 @ 60Hz" data-shape="rectangle">
+  <rect x="368.1796833333333" y="749.7" width="217.56699999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="476.9631833333333" y="768.1500000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">VGA Monitor: 640x480 @ 60Hz</text>
+</g>
+<g class="node" data-id="BCD" data-label="Double Dabble: binary_to_bcd" data-shape="rectangle">
+  <rect x="654.1851333333333" y="590.5000000000001" width="218.308" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="763.3391333333333" y="608.9500000000002" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Double Dabble: binary_to_bcd</text>
+</g>
+<g class="node" data-id="SEGS" data-label="7-Segment Displays: HEX0-HEX5" data-shape="rectangle">
+  <rect x="646.0341333333333" y="669.4000000000001" width="234.60999999999993" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="763.3391333333333" y="687.8500000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">7-Segment Displays: HEX0-HEX5</text>
+</g>
+</svg>

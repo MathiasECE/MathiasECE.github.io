@@ -36,8 +36,8 @@
 │   ├── img/                    # Architecture diagrams & photos
 │   │   ├── profile.jpg
 │   │   ├── 4cad_global_industrie.jpg
-│   │   ├── architecture_drawbot.png
-│   │   └── architecture_fpga.png
+│   │   ├── architecture_drawbot.svg
+│   │   └── architecture_fpga.svg
 │   └── video/                  # Optimized MP4 video demos
 │       ├── 4cad_vr.mp4
 │       ├── drawbot.mp4
